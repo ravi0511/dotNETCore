@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="Create">Create</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

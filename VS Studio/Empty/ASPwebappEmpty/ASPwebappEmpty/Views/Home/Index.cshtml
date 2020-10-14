@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ViewModelDTO
+@{
+    ViewBag.Title = Model.PageTitle;
+}
+    <h1>@Model.PageTitle</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Department</td>
+                <td>File</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Employee in Model.empDetails)
+            {
+                //var FilePath = Model.wwwpath + Employee.FileName;
+            <tr>
+                <td>@Employee.ID</td>
+                <td>@Employee.Name</td>
+                <td>@Employee.Department</td>
+                @if (Employee.FileName == null)
+                {
+                    <td>No File Found</td>
+                }
+                else
+                {
+
+                    System.Text.StringBuilder htmlbuilder = new System.Text.StringBuilder();
+                    //string htmlBuilder2 = "";
+                    string[] filenames = Employee.FileName.Split(';').ToArray();
+                    <td>
+                        @foreach (var fileName in filenames)
+                        {
+                            string filePath = Model.wwwpath + fileName.Trim();
+                            ////htmlbuilder.Append(@<a target='_blank' href='"+ filePath + "'>"+ fileName.Trim() +"</a>);
+                            //// htmlbuilder.Append(@Html.ActionLink("Download", "Download", new { link = filePath }));
+                            //htmlBuilder2 += @Html.ActionLink("Download", "Download", new { link = filePath });
+                            @Html.ActionLink("Download", "Download", new { link = filePath })
+                        }
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = Employee.ID })
+                    @*<button type="submit" asp-controller="Home" asp-action="Delete" asp-route-id="@Employee.ID" formmethod="post">Delete</button>*@
+                    @*<input type="button" title="Delete" value="D" onclick="location.href='@Url.Action("Delete", "movies", new { id = item.ID })'" />*@
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditForm", new { id = Employee.ID })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = Employee.ID })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

@@ -1,0 +1,22 @@
+﻿@model HomeCreateViewModel
+
+
+<form enctype="multipart/form-data" asp-controller="Home" asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name" class="label-field"></label>
+        <input asp-for="Name" class="field-field" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Department"></label>
+        <select asp-for="Department" asp-items="Html.GetEnumSelectList<DepartmentOptions>()"></select>
+        <span asp-validation-for="Department"></span>
+    </div>
+    <div>
+        <label asp-for="FileName"></label>
+        <input asp-for="FileName" multiple="multiple"/>
+    </div>
+    <button type="submit" asp-controller="Home" asp-action="Create">Submit</button>
+    <div asp-validation-summary="All"></div>
+</form>
+
