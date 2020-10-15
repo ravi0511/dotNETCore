@@ -88,3 +88,5 @@ C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebap
 C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\ASPwebappEmpty.csproj.CoreCompileInputs.cache
 C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\ASPwebappEmpty.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs

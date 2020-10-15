@@ -26,8 +26,15 @@ using ASPwebappEmpty.ViewData;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"77fdbee0be4ce2e82364ce90ac4e3a77f988e419", @"/Views/Shared/PageNotFound.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ae47bd1d8f004178780703550624ec3d42a3eac4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"39b7b7a58304f8c85234d1aab8e23749ece2d728", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_PageNotFound : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

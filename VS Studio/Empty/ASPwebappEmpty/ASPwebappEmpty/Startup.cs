@@ -32,6 +32,14 @@ namespace ASPwebappEmpty
             });
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddEntityFrameworkStores<AppDbContent>();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 3;
+                options.Password.RequiredUniqueChars = 3;
+                //options.Password.RequireDigit = false;
+                //options.Password.RequireLowercase = false;
+                //options.Password.RequireNonAlphanumeric = false;
+            });
             services.AddMvc(option => option.EnableEndpointRouting = false).AddJsonOptions(e => e.JsonSerializerOptions.PropertyNamingPolicy = null);
             services.AddScoped<IEmployeeInterface, SQLEmployeeRepository>();
             // services.AddTransient<IEmployeeInterface, IEmployeeRepository>();

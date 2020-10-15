@@ -1,23 +1,57 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> users
+
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
-    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
+
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
+    <link href="~/lib/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/lib/jqueryui/jquery-ui.structure.css" rel="stylesheet" />
+    <link href="~/lib/jqueryui/jquery-ui.theme.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>
-                <a asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li>
-                <a asp-controller="Home" asp-action="Create">Create</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Create">Create</a>
+                    </li>
+                    @if (users.IsSignedIn(User))
+                    {
+                        <li>
+                            <a asp-controller="Account" asp-action="Logout">Logout</a>
+                        </li>
+                        <li>
+                            <label>@User.Identity.Name</label>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Account" asp-action="Register">Register</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="container">
         @RenderBody()
     </div>
