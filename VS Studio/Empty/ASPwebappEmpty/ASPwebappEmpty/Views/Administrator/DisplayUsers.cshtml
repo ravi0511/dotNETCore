@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ApplicationUser>
+
+@{
+    ViewBag.Title = "Display Users";
+}
+
+@if (Model.Any())
+{
+    <a class="btn btn-dark" asp-controller="Account" asp-action="Register">Register</a>
+    <div class="card mb-3">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">User Id</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @user.Id
+                        </td>
+                        <td>
+                            @user.UserName
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="UpdateUser" asp-route-userid="@user.Id" asp-controller="Administrator">Edit</a>
+                        </td>
+                        <td>
+                            @*<button class="btn btn-danger" onclick="DeleteConfirmation(@user.Id, @user.UserName)" asp-action="DeleteUser" asp-route-userid="@user.Id" asp-controller="Administrator">Delete</button>*@
+                            <button type="button" class="btn btn-danger" onclick="UserDeleteConfirmation('@user.Id', '@user.UserName')">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="card">
+        <h2 class="card-header">No Users to Dispay</h2>
+        <a class="btn btn-dark" asp-action="CreateRole" asp-controller="Administrator">Create Role</a>
+    </div>
+}
+@section Scripts{
+    <script src="~/JS/CustomScript.js"></script>
+}

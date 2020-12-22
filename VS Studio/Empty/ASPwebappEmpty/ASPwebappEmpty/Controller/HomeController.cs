@@ -1,5 +1,6 @@
 ﻿using ASPwebappEmpty.Model;
 using ASPwebappEmpty.ViewData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,7 @@ using System.Threading.Tasks;
 
 namespace ASPwebappEmpty
 {
+    [Authorize]
     public class HomeController: Controller
     {
         private IEmployeeInterface _employeeRepository;
@@ -29,6 +31,8 @@ namespace ASPwebappEmpty
             _hostingEnvironment = hostingEnvironment;
             _logger = logger;
         }
+
+        [AllowAnonymous]
         public ViewResult Index(string? returnValue)
         {
             var _returnValue = "";

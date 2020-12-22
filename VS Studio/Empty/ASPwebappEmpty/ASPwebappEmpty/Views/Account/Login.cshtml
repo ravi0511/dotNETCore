@@ -1,23 +1,28 @@
 ﻿@model LoginViewModel
 
-<form method="post">
-    <div>
-        <label asp-for="UserName"></label>
-        <input asp-for="UserName" />
-        <span asp-validation-for="UserName"></span>
+<form method="post" class="card">
+    <div class="card-header">
+        <h2>User Login</h2>
     </div>
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
+    <div class="card-body">
+        <div class="form-group">
+            <label asp-for="UserName"></label>
+            <input class="form-control" asp-for="UserName" />
+            <span class="text-danger" asp-validation-for="UserName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input class="form-control" asp-for="Password" />
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group form-check">
+            <input class="form-check-input" type="checkbox" asp-for="RememberMe" />
+            <label class="form-check-label" asp-for="RememberMe"></label>
+            <span class="text-danger" asp-validation-for="RememberMe"></span>
+        </div>
     </div>
-    <div>
-        <label asp-for="RememberMe"></label>
-        <input type="checkbox" asp-for="RememberMe" />
-        <span asp-validation-for="RememberMe"></span>
-    </div>
-    <div>
-        <button type="submit" asp-controller="Account" asp-action="Login">Login</button>
-        <div asp-validation-summary="All"></div>
+    <div class="card-footer">
+        <button type="submit" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.returnurl">Login</button>
+        <div class="text-danger" asp-validation-summary="All"></div>
     </div>
 </form>

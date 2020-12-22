@@ -1,0 +1,71 @@
+﻿@model UpdateRoleViewModel
+
+@{
+    ViewBag.Title = "Update Roles";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@*@if (Model == null)
+{
+    <div class="card">
+        <div class="card-body">@ViewBag.ErrorMessage</div>
+    </div>
+}
+else
+{*@
+    <form method="post">
+        <div class="card">
+            <div class="card-header">
+                <label asp-for="ID" class="col-form-label"></label>
+                <input asp-for="ID" class="col-form-label" disabled="disabled" />
+            </div>
+            <div class="card-body">
+                <label asp-for="RoleName"></label>
+                <input asp-for="RoleName" />
+                <span asp-validation-for="RoleName"></span>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary" asp-action="UpdateRole" asp-controller="Administrator">Update Role</button>
+                <button type="submit" class="btn btn-primary" asp-action="DisplayRoles" asp-controller="Administrator">Cancel</button>
+            </div>
+            <div asp-validation-summary="All"></div>
+        </div>
+        
+    </form>
+    <div class="card">
+        <div class="card-header">
+            Users in this Role
+        </div>
+        <div class="card-body">
+            @if (Model != null)
+            {
+                @if (Model.Users.Count > 0)
+                {
+                    <ul>
+                        @foreach (string user in Model.Users)
+                        {
+                            <li>@user</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div>
+                        No Users found on this role.
+                    </div>
+                }
+            }
+            else
+            {
+                <div>
+                    No Users found on this role.
+                </div>
+            }
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary" asp-route-roleid="@Model.ID" asp-action="AddRemoveUsers" asp-controller="Administrator">Add or Remove Users</a>
+            @*<a class="btn btn-danger" asp-action="RemoveUsers" asp-controller="Administrator">Remove Users</a>*@
+        </div>
+    </div>
+@*}*@

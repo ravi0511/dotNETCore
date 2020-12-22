@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using ASPwebappEmpty.Utilities;
 
 namespace ASPwebappEmpty.ViewData
 {
@@ -12,7 +14,12 @@ namespace ASPwebappEmpty.ViewData
         [Required]
         [Display(Name = "User Name")]
         [EmailAddress]
+        [Remote(action: "CheckEmail", controller:"Account")]
+        [EmailValidation(allowedDomain:"gmail.com", ErrorMessage = "only gmail domain is allowed.")]
         public string UserName { get; set; }
+
+        [Required]
+        public string City { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

@@ -1,0 +1,13 @@
+﻿@model RoleViewModel
+
+<form method="post">
+    <div>
+        <label asp-for="Role"></label>
+        <input asp-for="Role" />
+        <span asp-validation-for="Role"></span>
+    </div>
+    <div>
+        <button type="submit" asp-controller="Administrator" asp-action="CreateRole">Create Role</button>
+        <div asp-validation-summary="All" class="alert-danger"></div>
+    </div>
+</form>

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ASPwebappEmpty.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,7 +33,7 @@ namespace ASPwebappEmpty
             {
                 option.UseSqlServer(_config.GetConnectionString("EmployeeDBString"));
             });
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<AppDbContent>();
             services.Configure<IdentityOptions>(options =>
             {
@@ -40,7 +43,20 @@ namespace ASPwebappEmpty
                 //options.Password.RequireLowercase = false;
                 //options.Password.RequireNonAlphanumeric = false;
             });
-            services.AddMvc(option => option.EnableEndpointRouting = false).AddJsonOptions(e => e.JsonSerializerOptions.PropertyNamingPolicy = null);
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("DeleteRolePolicy",
+                    policy => policy.RequireClaim("Delete Role")
+                                    .RequireClaim("Create Role"));
+
+                option.AddPolicy("AdminRolePolicy",
+                    policy => policy.RequireRole("Admin"));
+            });
+            services.AddMvc(option => {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                option.Filters.Add(new AuthorizeFilter(policy));
+                option.EnableEndpointRouting = false;
+                }).AddJsonOptions(e => e.JsonSerializerOptions.PropertyNamingPolicy = null).AddXmlSerializerFormatters();
             services.AddScoped<IEmployeeInterface, SQLEmployeeRepository>();
             // services.AddTransient<IEmployeeInterface, IEmployeeRepository>();
         }
@@ -73,7 +89,6 @@ namespace ASPwebappEmpty
             app.UseStaticFiles();
             app.UseAuthentication();
 
-
             //app.UseMvcWithDefaultRoute();
 
             //app.UseMvc(routes =>
@@ -82,6 +97,7 @@ namespace ASPwebappEmpty
             //});
 
             app.UseRouting();
+            app.UseAuthorization();
             app.UseEndpoints(endPoint =>
             {
                 //endPoint.MapControllerRoute("default", "{controller=Home}/{action=Index}/{?id}");

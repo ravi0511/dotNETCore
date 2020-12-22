@@ -90,3 +90,12 @@ C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebap
 C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\ASPwebappEmpty.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\CreateRole.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\DisplayRoles.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\UpdateRole.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\AddRemoveUsers.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Account\AccessDenied.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\DisplayUsers.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\UpdateUser.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\PageNotFound.cshtml.g.cs
+C:\Users\RaviPrakas\Documents\dotNETCore\VS Studio\Empty\ASPwebappEmpty\ASPwebappEmpty\obj\Debug\netcoreapp3.1\Razor\Views\Administrator\AddRemoveClaims.cshtml.g.cs

@@ -15,6 +15,12 @@
     <Compile Remove="Migrations\20201006111953_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20201006141615_UploadFile.cs" />
     <Compile Remove="Migrations\20201006141615_UploadFile.Designer.cs" />
+    <Compile Remove="Migrations\20201030124041_adding_delete_constrains.cs" />
+    <Compile Remove="Migrations\20201030124041_adding_delete_constrains.Designer.cs" />
+    <Compile Remove="Migrations\20201030132035_adding_delete_constrains2.cs" />
+    <Compile Remove="Migrations\20201030132035_adding_delete_constrains2.Designer.cs" />
+    <Compile Remove="Migrations\20201030132208_deleteconstrains.cs" />
+    <Compile Remove="Migrations\20201030132208_deleteconstrains.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

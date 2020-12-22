@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ASPwebappEmpty.Model
 {
-    public class AppDbContent : IdentityDbContext
+    public class AppDbContent : IdentityDbContext<ApplicationUser>
     {
         public AppDbContent(DbContextOptions<AppDbContent> options): base(options)
         {
@@ -19,15 +19,11 @@ namespace ASPwebappEmpty.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            //modelBuilder.Entity<Employee>().HasData(
-            //        new Employee
-            //        {
-            //            ID = 1, Name = "Ravi", Department = DepartmentOptions.Finance
-            //        }
-            //    );
-
             modelBuilder.Seed();
+            foreach (var foreignkey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                foreignkey.DeleteBehavior = DeleteBehavior.Restrict;
+            }
         }
     }
 }
